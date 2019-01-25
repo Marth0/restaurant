@@ -1,0 +1,29 @@
+<ul>
+  <?php foreach ($menu as $m):?>
+        <li>
+            <h1><?php echo $m['nom']; ?></h1>
+            <img src="<?= $wwwUrl ?>/images/meals/<?php echo $m['photo'] ?>" alt="">
+            <p>Description : <?php echo $m['description']; ?></p>
+            <p><?php echo $m['quantité']; ?> En stock</p>
+            <p>Prix <?php echo $m['prix']; ?>€</p>
+            <select class="" name="quantité">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          <input type="submit" name="Ajouter" value="Ajouter au panier">
+
+            <?php
+            $p = new PanierModel;{
+            $p -> createPanier();
+            if (isset($_POST['quantité'])){
+              var_dump('test2');
+            $p -> AjouterAuPanier();
+          }
+          }?>
+        </li>
+    <?php endforeach; ?>
+</ul>
